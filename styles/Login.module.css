@@ -1,0 +1,52 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 4rem 0;
+
+  }
+  .title {
+    line-height: 1.15;
+    font-size: 4rem;
+  }
+  
+  .title a {
+    color: #0070f3;
+    text-decoration: none;
+  }
+  
+  .title a:hover, .title a:focus, .title a:active {
+    text-decoration: underline;
+  }
+  
+  .container{
+    display: flex;
+   width: 100%;
+   justify-content: left;
+  
+  }
+  
+
+  .left-container{
+    display: flex;
+    width: 50%;
+    justify-content: left;
+    background-image: url("../image/fond2.jpg");
+    background-repeat: no-repeat;
+    background-position: left;   
+}
+
+.right-container{
+    background-color: black;
+    display: flex;
+    width: 50%;
+    justify-content: right;
+}
+  
+  .logo {
+      margin-left: 20px;
+      width: 300px;
+  }
+  
