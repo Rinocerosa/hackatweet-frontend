@@ -1,0 +1,15 @@
+.tweet {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  grid-template-columns: repeat(3, calc(100% / 3));
+  border: 1px red solid;
+}
+.tweetSinglesContainer {
+  display: flex;
+  flex-direction: column;
+}
+.single {
+  background-color: white;
+}
