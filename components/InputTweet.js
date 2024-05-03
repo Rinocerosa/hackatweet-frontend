@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/inputtweet.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../reducers/users";
 export default function InputTweet({ ...props }) {
   const [tweet, setTweet] = useState("");
   const user = useSelector((state) => state.users.value);
-  const dispatch = useDispatch();
   // a revoir ça marche pas
   //   const regex = "\\W(\\#[a-zA-Z]+\b)(?!;)";
   const handleTweet = () => {
@@ -50,7 +48,6 @@ export default function InputTweet({ ...props }) {
         className={styles.inputtweetbutton}>
         TWEET
       </button>
-      <span>likes</span>
     </div>
   );
 }

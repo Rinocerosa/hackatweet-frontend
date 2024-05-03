@@ -1,16 +1,14 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/SignUp.module.css";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import { Provider } from "react-redux";
 import { login } from "./Login";
+import { signup } from "../reducers/users";
 import twitterlogo from "../image/twitterlogo.png";
 
 function SignUp(props) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const user = useSelector((state) => state.user.value);
-  const router = useRouter();
 
   const [signUpUsername, setSignUpUsername] = useState("");
   const [signUpPassword, setSignUpPassword] = useState("");
@@ -36,18 +34,17 @@ function SignUp(props) {
       .then((data) => {
         if (data.result) {
           dispatch(
-            login({
+            signup({
               firstname: signUpFirstname,
               username: signUpUsername,
               token: data.token,
+              id: data.id,
             })
           );
           setSignUpFirstName("");
           setSignUpPassword("");
           setSignUpUsername("");
           setError("");
-          //à v"rifier
-          router.push("/tweet");
         } else {
           setError("Username is already taken");
         }

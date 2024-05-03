@@ -2,12 +2,37 @@ import InputTweet from "./InputTweet";
 import styles from "../styles/tweet.module.css";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-function SingleTweet({ textContent, likes, date, username }) {
+function SingleTweet({ textContent, likes, date, username, id }) {
+  const [like, setLike] = useState(likes);
+  const [liked, setLiked] = useState(false);
+  const handleLike = () => {
+    if (!liked) {
+      setLike((v) => v - 1);
+      setLiked(!like);
+    } else if (like) {
+      setLike((v) => v + 1);
+      setLiked(!like);
+    }
+    fetch("http://localhost:3000/messages/update", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id: id, like: like }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   return (
     <div className={styles.single}>
       <span>{date}</span>
       <div>{textContent}</div>
-      <span>like : {likes}</span>
+      <span
+        onClick={() => {
+          handleLike();
+        }}>
+        like : {like}
+      </span>
       <span> {username}</span>
     </div>
   );
@@ -34,14 +59,15 @@ export default function Tweet() {
       <div className={styles.tweetSinglesContainer}>
         {postTweet &&
           postTweet.map((e, i) => {
-            console.log(user);
+            console.log(e);
             return (
               <SingleTweet
                 key={i}
                 textContent={e.textContent}
                 likes={e.like}
                 date={e.date}
-                username={user.username}></SingleTweet>
+                username={user.username}
+                id={e._id}></SingleTweet>
             );
           })}
       </div>
