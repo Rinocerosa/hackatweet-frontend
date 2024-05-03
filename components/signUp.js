@@ -8,12 +8,8 @@ import twitterlogo from "../image/twitterlogo.png";
 import { useDispatch } from "react-redux";
 
 function SignUp(props) {
-<<<<<<< HEAD
-  const router = useRouter();
-=======
   const dispatch = useDispatch();
   // const user = useSelector((state) => state.user.value);
->>>>>>> 71f4e0e3ee896e89339736b163cdde3ef5f7a8f1
 
   const [signUpUsername, setSignUpUsername] = useState("");
   const [signUpPassword, setSignUpPassword] = useState("");
@@ -50,10 +46,6 @@ function SignUp(props) {
           setSignUpPassword("");
           setSignUpUsername("");
           setError("");
-<<<<<<< HEAD
-          // router.push("/tweet");
-=======
->>>>>>> 71f4e0e3ee896e89339736b163cdde3ef5f7a8f1
         } else {
           setError("Username is already taken");
         }

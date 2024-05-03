@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
-
-import Home from "../components/Home";
-=======
 import "../styles/globals.css";
 import Head from "next/head";
 // redux-persist
->>>>>>> 71f4e0e3ee896e89339736b163cdde3ef5f7a8f1
 
 import { persistStore, persistReducer } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
@@ -44,16 +36,6 @@ function App({ Component, pageProps }) {
   }, [isAuthenticated]);
 
   return (
-<<<<<<< HEAD
-    <>
-      <Head>
-        <title>Next.js App</title>
-      </Head>
-      {!isAuthenticated && <SignIn />}
-      {!isAuthenticated && <SignUp />}
-      {isAuthenticated && <Home />}
-    </>
-=======
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <Head>
@@ -62,7 +44,6 @@ function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </PersistGate>
     </Provider>
->>>>>>> 71f4e0e3ee896e89339736b163cdde3ef5f7a8f1
   );
 }
 
