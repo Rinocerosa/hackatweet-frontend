@@ -57,7 +57,7 @@ function Login() {
               >
                 Sign up
               </button>
-              {showSignUpModal && <Signup closeModal={closeSignUpModal} />}
+              {showSignUpModal && <SignUp closeModal={closeSignUpModal} />}
               <p>Already have an account?</p>
               <button
                 className={styles.rightButtonIn}
