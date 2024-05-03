@@ -46,6 +46,7 @@ function SignUp(props) {
           setSignUpPassword("");
           setSignUpUsername("");
           setError("");
+          //à v"rifier
           router.push("/tweet");
         } else {
           setError("Username is already taken");
@@ -96,8 +97,7 @@ function SignUp(props) {
           />
           <button
             className={styles.modalButton}
-            onClick={() => handleRegister()}
-          >
+            onClick={() => handleRegister()}>
             Sign Up
           </button>
         </div>

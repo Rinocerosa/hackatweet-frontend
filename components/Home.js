@@ -1,13 +1,8 @@
 import styles from "../styles/Home.module.css";
+import Tweet from "./Tweet";
 
 function Home() {
-  return (
-    <div>
-      <main className={styles.main}>
-        <h1 className={styles.title}>git </h1>
-      </main>
-    </div>
-  );
+  return <Tweet></Tweet>;
 }
 
 export default Home;
