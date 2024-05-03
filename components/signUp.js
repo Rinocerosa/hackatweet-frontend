@@ -1,15 +1,19 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/SignUp.module.css";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import { Provider } from "react-redux";
 import { login } from "./Login";
+import { signup } from "../reducers/users";
 import twitterlogo from "../image/twitterlogo.png";
 import { useDispatch } from "react-redux";
 
 function SignUp(props) {
+<<<<<<< HEAD
   const router = useRouter();
+=======
+  const dispatch = useDispatch();
+  // const user = useSelector((state) => state.user.value);
+>>>>>>> 71f4e0e3ee896e89339736b163cdde3ef5f7a8f1
 
   const [signUpUsername, setSignUpUsername] = useState("");
   const [signUpPassword, setSignUpPassword] = useState("");
@@ -35,17 +39,21 @@ function SignUp(props) {
       .then((data) => {
         if (data.result) {
           dispatch(
-            login({
+            signup({
               firstname: signUpFirstname,
               username: signUpUsername,
               token: data.token,
+              id: data.id,
             })
           );
           setSignUpFirstName("");
           setSignUpPassword("");
           setSignUpUsername("");
           setError("");
+<<<<<<< HEAD
           // router.push("/tweet");
+=======
+>>>>>>> 71f4e0e3ee896e89339736b163cdde3ef5f7a8f1
         } else {
           setError("Username is already taken");
         }
@@ -95,8 +103,7 @@ function SignUp(props) {
           />
           <button
             className={styles.modalButton}
-            onClick={() => handleRegister()}
-          >
+            onClick={() => handleRegister()}>
             Sign Up
           </button>
         </div>
