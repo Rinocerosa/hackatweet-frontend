@@ -1,6 +1,6 @@
 import styles from "../styles/Login.module.css";
 import Image from "next/image";
-import Signup from "./Signup";
+import Signup from "./signUp";
 import SignIn from "./SignIn";
 import twitterlogo from "../image/twitterlogo.png";
 import twitter1 from "../image/twitter1.png";
