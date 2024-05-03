@@ -1,12 +1,16 @@
-.main {
+@font-face {
+    font-family: 'Mont-Heavy';
+    src: url('../styles/mont/Mont-HeavyDEMO.otf') format('opentype');
+  }
+
+.main_loginPage {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 4rem 0;
-
+    width: 100%;
+    height: 100vh;
+    background-color: red;
   }
+  
   .title {
     line-height: 1.15;
     font-size: 4rem;
@@ -23,30 +27,117 @@
   
   .container{
     display: flex;
-   width: 100%;
-   justify-content: left;
-  
+    width: 100vw;
+    justify-content: left;
+    min-height: 100vh;
   }
   
-
-  .left-container{
+  .leftcontainer{
     display: flex;
-    width: 50%;
+    width: 50vw;
+    height: 100vh;
     justify-content: left;
-    background-image: url("../image/fond2.jpg");
+    background-image: url("../image/fond.jpg");
     background-repeat: no-repeat;
     background-position: left;   
-}
-
-.right-container{
+  }
+  
+  .rightcontainer{
     background-color: black;
     display: flex;
-    width: 50%;
+    width: 50vw;
+    height: 100vh;
     justify-content: right;
-}
+  }
   
   .logo {
-      margin-left: 20px;
-      width: 300px;
+    justify-content: right;
+    display: flex;
+    margin-top: 185px;
+    margin-left: 220px;
+  }
+
+  .logo2{
+    display: flex;
+    justify-content: left;
+    margin-top: 50px;
+    position: absolute;
+  }
+  
+  .imageLoginPage {
+    position: relative;
+    width: 60%;
+  }
+  
+  .imageLoginPage img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .logoContainer {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+  }
+  
+  .rightContent {
+    display: flex;
+    flex-direction: column;
+    padding-left: 35px;
+    width: 100%;
+    background-color: rgb(34, 34, 34);
+    color: #fff;
+    border: 1px white;
+  }
+  
+  .rightLogoTop {
+    margin-top: 35px;
+  }
+  
+  .rightTitre {
+    padding-top: 100px;
+    margin-top: 15px;
+    font-size: 60px;
+    color: #0070f3;
+    font-family: 'Mont-Heavy', sans-serif;
+  }
+  
+  .rightTexte {
+    margin-top: -15px;
+    font-size: 30px;
+    font-family: 'Mont-Heavy', sans-serif;
+  }
+  
+  .rightButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+  }
+  
+  .rightButtonUp {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 150px;
+    font-family: 'Mont-Heavy', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    background-color: dodgerblue;
+    cursor: pointer;
+  }
+  
+  .rightButtonIn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 150px;
+    font-family: 'Mont-Heavy', sans-serif;
+    font-size: 16px;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
   }
   

@@ -1,21 +1,78 @@
 import styles from "../styles/Login.module.css";
+import Image from "next/image";
 import Signup from "./Signup";
-import logo from "../image/twitterlogo.png";
+import SignIn from "./SignIn";
+import twitterlogo from "../image/twitterlogo.png";
+import twitter1 from "../image/twitter1.png";
+import { useState } from "react";
 
 function Login() {
+  const [showSignInModal, setShowSignInModal] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
+  //pas ouvrir les deux ensembles
+  const openSignUpModal = () => {
+    setShowSignInModal(false);
+    setShowSignUpModal(true);
+  };
+
+  const closeSignUpModal = () => {
+    setShowSignUpModal(false);
+  };
+
+  const openSignInModal = () => {
+    setShowSignUpModal(false);
+    setShowSignInModal(true);
+  };
+
+  const closeSignInModal = () => {
+    setShowSignInModal(false);
+  };
+
   return (
-    <div className={styles.container}>
-      <div className={styles.leftcontainer}>
-        <div className={styles.logo}>
-          <img src={logo} alt="Logo" />
-        </div>
-      </div>
-      <div className={styles.rightcontainer}>
-        <main className={styles.main}>
+    <div className={styles.main_loginPage}>
+      <div className={styles.container}>
+        <div className={styles.leftcontainer}>
           <h1 className={styles.title}>
-            <Signup></Signup>
+            <div className={styles.logo}>
+              <Image src={twitter1} alt="Logo" width={400} height={200} />
+            </div>
           </h1>
-        </main>
+        </div>
+        <div className={styles.rightcontainer}>
+          <div className={styles.rightContent}>
+            <div className={styles.logo2}>
+              <Image src={twitterlogo} alt="Logo" width={100} height={50} />
+            </div>
+            <h1 className={styles.rightTitre}>
+              See what's <br />
+              happening
+            </h1>
+            <div className={styles.rightTexte}>
+              <h3>Join Hackatweet today.</h3>
+            </div>
+            <div className={styles.rightButton}>
+              <button
+                className={styles.rightButtonUp}
+                onClick={openSignUpModal}
+              >
+                Sign up
+              </button>
+              {showSignUpModal && <Signup closeModal={closeSignUpModal} />}
+              <p>Already have an account?</p>
+              <button
+                className={styles.rightButtonIn}
+                onClick={openSignInModal}
+              >
+                Sign in
+              </button>
+              {showSignInModal && (
+                <div className={styles.modal}>
+                  <SignIn closeModal={closeSignInModal} />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
