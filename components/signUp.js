@@ -6,10 +6,9 @@ import { useRouter } from "next/router";
 import { Provider } from "react-redux";
 import { login } from "./Login";
 import twitterlogo from "../image/twitterlogo.png";
+import { useDispatch } from "react-redux";
 
 function SignUp(props) {
-  // const dispatch = useDispatch();
-  // const user = useSelector((state) => state.user.value);
   const router = useRouter();
 
   const [signUpUsername, setSignUpUsername] = useState("");
@@ -46,7 +45,7 @@ function SignUp(props) {
           setSignUpPassword("");
           setSignUpUsername("");
           setError("");
-          router.push("/tweet");
+          // router.push("/tweet");
         } else {
           setError("Username is already taken");
         }

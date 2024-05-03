@@ -37,7 +37,7 @@ function SignIn(props) {
             );
             setSignInUsername("");
             setSignInPassword("");
-            router.push("/tweet");
+            // router.push("/tweet");
           } else {
             setError("Invalid credentials");
           }
