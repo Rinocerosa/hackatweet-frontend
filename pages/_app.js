@@ -1,10 +1,11 @@
 import "../styles/globals.css";
 import Head from "next/head";
 // redux-persist
-
+import { Provider } from "react-redux";
 import { persistStore, persistReducer } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import storage from "redux-persist/lib/storage";
+import users from "../reducers/users";
 
 import {
   combineReducers,
@@ -12,8 +13,7 @@ import {
   getDefaultMiddleware,
 } from "@reduxjs/toolkit";
 // redux
-import { Provider } from "react-redux";
-import users from "../reducers/users";
+
 const reducers = combineReducers({ users });
 const persistConfig = { key: "morningnews", storage };
 const store = configureStore({
@@ -25,16 +25,6 @@ const store = configureStore({
 });
 const persistor = persistStore(store);
 function App({ Component, pageProps }) {
-  const router = useRouter();
-  const dispatch = useDispatch();
-  const isAuthenticated = useSelector((state) => state.isAuthenticated);
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.push("/");
-    }
-  }, [isAuthenticated]);
-
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>

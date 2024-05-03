@@ -5,11 +5,12 @@ import Image from "next/image";
 import { login } from "./Login";
 import { signup } from "../reducers/users";
 import twitterlogo from "../image/twitterlogo.png";
-import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 function SignUp(props) {
   const dispatch = useDispatch();
   // const user = useSelector((state) => state.user.value);
+  const router = useRouter();
 
   const [signUpUsername, setSignUpUsername] = useState("");
   const [signUpPassword, setSignUpPassword] = useState("");
@@ -46,6 +47,7 @@ function SignUp(props) {
           setSignUpPassword("");
           setSignUpUsername("");
           setError("");
+          router.push("/");
         } else {
           setError("Username is already taken");
         }
@@ -67,7 +69,6 @@ function SignUp(props) {
         />
         <h1>Connect to Hackatweet</h1>
         {error && <p className={styles.errorMessage}>{error}</p>}
-
         <div className={styles.modalInputButton}>
           <input
             className={styles.modalInput}
@@ -95,7 +96,8 @@ function SignUp(props) {
           />
           <button
             className={styles.modalButton}
-            onClick={() => handleRegister()}>
+            onClick={() => handleRegister()}
+          >
             Sign Up
           </button>
         </div>
