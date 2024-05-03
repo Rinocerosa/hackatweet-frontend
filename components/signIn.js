@@ -6,43 +6,43 @@ import { useRouter } from "next/router";
 import { Provider } from "react-redux";
 import { login } from "./Login";
 import twitterlogo from "../image/twitterlogo.png";
+import { signup } from "../reducers/users";
 
 function SignIn(props) {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [signInUsername, setSignInUsername] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleConnection = () => {
-    if (!signInUsername || !signInPassword) {
-      setError("Missing field");
-
-      fetch("http://localhost:3000/users/signin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: signInUsername,
-          password: signInPassword,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.result) {
-            dispatch(
-              login({
-                username: signInUsername,
-                token: data.token,
-                firstname: data.firstname,
-              })
-            );
-            setSignInUsername("");
-            setSignInPassword("");
-            router.push("/tweet");
-          } else {
-            setError("Invalid credentials");
-          }
-        });
-    }
+    console.log("ok");
+    fetch("http://localhost:3000/users/signin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: signInUsername,
+        password: signInPassword,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.result) {
+          dispatch(
+            signup({
+              username: signInUsername,
+              token: data.token,
+              firstname: data.firstname,
+            })
+          );
+          setSignInUsername("");
+          setSignInPassword("");
+          console.log("anais");
+          router.push("/");
+        } else {
+          setError("Missing");
+        }
+      });
   };
 
   return (
